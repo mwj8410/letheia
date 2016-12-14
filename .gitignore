@@ -1,5 +1,5 @@
 /dict/*
 
+*.tbl
+
 dictionary.txt
-key.txt
-lookup.tbl
