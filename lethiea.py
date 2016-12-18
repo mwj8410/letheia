@@ -108,6 +108,15 @@ if (len(sys.argv) == 3 and sys.argv[1] == '-init'):
 # lethiea <code-book-name> -f <message-file-name>
 if (len(sys.argv) == 4 and sys.argv[2] == '-f'):
     print('Encode indicated file')
+    lookup_table_file_name = sys.argv[1]
+    file_name = sys.argv[3]
+    save_encoded_message(
+        encode_message(
+            read_encoded_file(file_name),
+            read_lookup_table(lookup_table_file_name),
+            read_dictionary()
+        )
+    )
     sys.exit(0)
 
 # lethiea <code-book-name> -m "content"
@@ -115,7 +124,13 @@ if (len(sys.argv) == 4 and sys.argv[2] == '-m'):
     print('Encode inline message')
     lookup_table_file_name = sys.argv[1]
     message_content = normalize_message(sys.argv[3])
-    save_encoded_message(encode_message(message_content, read_lookup_table(lookup_table_file_name), read_dictionary()))
+    save_encoded_message(
+        encode_message(
+            message_content,
+            read_lookup_table(lookup_table_file_name),
+            read_dictionary()
+        )
+    )
     sys.exit(0)
 
 # lethiea <code-book-name> -d <file-name>
@@ -123,9 +138,11 @@ if (len(sys.argv) == 4 and sys.argv[2] == '-d'):
     print('decode indicated file')
     lookup_table_file_name = sys.argv[1]
     file_name = sys.argv[3]
-    # print read_encoded_file(file_name)
     save_decoded_message(
-        decode_message(read_encoded_file(file_name), read_lookup_table(lookup_table_file_name), read_dictionary())
+        decode_message(
+            read_encoded_file(file_name),
+            read_lookup_table(lookup_table_file_name), read_dictionary()
+        )
     )
     sys.exit(0)
 
