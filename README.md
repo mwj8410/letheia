@@ -1,6 +1,6 @@
 # Lethiea
 
-A prototype cypher application intended to demonstrate the basics of a non-formula based encoding methodology that
+A prototype cipher application intended to demonstrate the basics of a non-formula based encoding methodology that
 should represent highly difficult to functionally impossible to crack text message encoding. The weakness of this
 approach is the total encoded message size, however the size before a message could be reliably decoded is so large
 that the actual weakness is in the passing of the key table.
